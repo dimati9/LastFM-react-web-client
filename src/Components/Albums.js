@@ -14,10 +14,7 @@ class Albums extends React.Component {
                         <div className="albums">
                             {this.props.albums.map((place, index) => {
                                 if (place.name != '(null)') {
-                                    let $img = place.image[3]["#text"];
-                                    if ($img == null || $img == '') {
-                                        $img = 'https://ru-coin.com/market/logo/empty-logo.jpg';
-                                    }
+                                    const $img = place.image[3]["#text"] || 'https://ru-coin.com/market/logo/empty-logo.jpg';
                                     return <div className="album">
                                         <h2>{place.name}</h2>
                                         <img src={$img} alt=""/>

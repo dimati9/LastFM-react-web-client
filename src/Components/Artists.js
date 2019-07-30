@@ -1,17 +1,17 @@
 import React from 'react';
 import Albums from './Albums';
-import {api_key} from '../api_key.js';
+import Search from './Search';
+import {apiKey} from '../api_key.js';
 
-const apiKey = api_key;
 
 class Artists extends React.Component {
 
     state = {
         albums: undefined,
-        showResults: true,
+        showResults: this.props.showResults == false ? false : true,
         error: this.props.error,
     };
-    back = async (e) => {
+    back = () => {
         this.setState({
             showResults: true,
         });
@@ -26,7 +26,7 @@ class Artists extends React.Component {
             const data = await api_url.json();
             this.setState({
                 albums: data.topalbums.album,
-                showResults: false,
+                showResults: this.props.showResults,
             });
         }
 
@@ -51,6 +51,7 @@ class Artists extends React.Component {
                                     </button>
                                 </li>
                             ))}
+
                             <Albums albums={this.state.albums}/>
                         </ul>
                     </div>
