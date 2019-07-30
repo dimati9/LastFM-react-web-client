@@ -1,10 +1,9 @@
 import React from 'react';
 import Search from './Components/Search';
 import Artists from './Components/Artists';
-import {api_key} from './api_key.js';
-import styles from './App.css';
+import {apiKey} from './api_key.js';
 
-const apiKey = api_key;
+
 
 
 class App extends React.Component {
